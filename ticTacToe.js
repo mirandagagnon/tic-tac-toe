@@ -35,6 +35,7 @@ $(document).on('ready', function(){
         location.reload();
       }
     }
+    xTotal = 0;
   }
 
   function oWins(){
@@ -50,6 +51,14 @@ $(document).on('ready', function(){
     }
   }
 
+  function xWins2(){
+    var xTotal = 0;
+    $.each(oSelections, function(){
+    oTotal += this;
+    });
+    
+
+  }
   function checkForWinner(){
     if(turn === 4){
       xWins();
@@ -66,5 +75,4 @@ $(document).on('ready', function(){
       }
     }
   }
-
 });
