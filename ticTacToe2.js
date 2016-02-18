@@ -19,15 +19,18 @@ $(document).on('ready', function(){
 
   });
 
-  function xWins(){
+  var x_class = 'x';
+  var o_class = 'o';
+
+  function Wins(Playerclass){
     var count_x = 0;
     for (var i = 0; i < winningCombos.length; i++){
       for(var x= 0; x < winningCombos[i].length; x++){
-        if ($('#' + winningCombos[i][x]).attr('class') === 'x'){
+        if ($('#' + winningCombos[i][x]).attr('class') === Playerclass){
               count_x++
               if(count_x === 3){
                 console.log("x is" + count_x);
-                alert("X Wins");
+                alert(Playerclass + " wins");
                 if(confirm("Would you like to play again?")){
                   location.reload();
                 }
@@ -38,35 +41,15 @@ $(document).on('ready', function(){
     }
   }
 
-  function oWins(){
-    console.log("o is playing")
-    var count_o = 0;
-    for (var i = 0; i < winningCombos.length; i++){
-      for(var x= 0; x < winningCombos[i].length; x++){
-        if ($('#' + winningCombos[i][x]).attr('class') === 'o'){
-              count_o++
-              if(count_o === 3){
-                console.log("y is" +count_o);
-                alert("O Wins");
-                if(confirm("Would you like to play again?")){
-                  location.reload();
-                }
-              }
-        }
-      }
-      count_o = 0;
-    }
-  }
-
   function checkForWinner(){
     if (turn === 4){
-      xWins();
+      Wins(x_class);
     }else if(turn === 5){
-      oWins();
+      Wins(o_class);
     }else if(turn === 6){
-      xWins();
+      Wins(x_class);
     }else if(turn === 7){
-      oWins();
+      Wins(o_class);
     }else if(turn === 8){
       alert("Draw!");
       if(confirm("Would you like to play again?")){

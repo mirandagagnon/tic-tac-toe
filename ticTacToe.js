@@ -53,10 +53,12 @@ $(document).on('ready', function(){
 
   function xWins2(){
     var xTotal = 0;
-    $.each(oSelections, function(){
+    $.each(xSelections, function(){
     oTotal += this;
     });
-    
+    if (xTotal - xSelections[0] === 15){
+      alert("solved!");
+    }
 
   }
   function checkForWinner(){
@@ -65,7 +67,7 @@ $(document).on('ready', function(){
     }else if(turn === 5){
       oWins();
     }else if(turn === 6){
-      xWins();
+      xWins2();
     }else if(turn === 7){
       oWins();
     }else if(turn === 8){
